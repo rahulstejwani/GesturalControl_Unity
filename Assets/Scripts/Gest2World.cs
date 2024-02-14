@@ -17,11 +17,10 @@ public class Gest2World : MonoBehaviour
         sound = GameObject.Find("Particle System").GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         var ps = particles.main;
-
         lefthandpos = new Vector3(0, 0, 0);
         for (int i = 0; i < 20; i++)
         {
@@ -32,6 +31,7 @@ public class Gest2World : MonoBehaviour
         ps.startSpeed = 1+ lefthandpos.y*30;
         ps.startColor = new Color(Gesture.gen.righthandpos[0].x, Gesture.gen.righthandpos[0].y, Gesture.gen.righthandpos[0].z) ;
         // Control audio
-        sound.pitch = Mathf.Abs(Gesture.gen.righthandpos[0].y) * 1.5f;
+        sound.pitch = 1 - (Mathf.Abs(Gesture.gen.righthandpos[0].y) + Mathf.Abs(Gesture.gen.righthandpos[9].y))/2 * 1.5f;
+        sound.volume= (1 - (Mathf.Abs(Gesture.gen.righthandpos[0].x) + Mathf.Abs(Gesture.gen.righthandpos[9].x)) / 2 * 1.5f) + 0.5f;
     }
 }

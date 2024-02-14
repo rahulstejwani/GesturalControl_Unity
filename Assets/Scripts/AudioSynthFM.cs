@@ -43,7 +43,7 @@ public class AudioSynthFM : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.Stop(); //avoids audiosource from starting to play automatically
-        frequency = 100; // init
+        frequency = 150; // init
         carrierMultiplier = 1.4f;
         modularMultiplier = 0.5f;
         amplitude = 0.1f;
@@ -57,9 +57,9 @@ public class AudioSynthFM : MonoBehaviour
             Button = !Button;
         }
         // Check distance?
-        // Debug.Log("distance: " + distance);
+        Debug.Log("distance: " + distance);
         // Low Pass Filter
-        GetComponent<AudioDistortionFilter>().distortionLevel = 0.1f/distance;
+        GetComponent<AudioDistortionFilter>().distortionLevel = 0.01f/distance;
         //// ReverbFilter
         GetComponent<AudioReverbFilter>().decayTime = 0.1f+ distance * 10f;
         // Random.Range vs rand.NextDouble()?
@@ -74,7 +74,7 @@ public class AudioSynthFM : MonoBehaviour
                 // Pure FM
                 data[i] = amplitude / (0.1f + distance) * FM(phase, carrierMultiplier, modularMultiplier);
                 // Need something brutal? try this
-                //data[i] = amplitude / (0.1f + distance) * FM(phase, carrierMultiplier, modularMultiplier) * (float)(rand.NextDouble());
+                data[i] = amplitude / (0.1f + distance) * FM(phase, carrierMultiplier, modularMultiplier) * (float)(rand.NextDouble());
                 data[i + 1] = data[i];
                 if (phase >= 2 * Mathf.PI)
                 {
