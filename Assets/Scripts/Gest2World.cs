@@ -34,4 +34,9 @@ public class Gest2World : MonoBehaviour
         sound.pitch = (Mathf.Abs(1 - (Mathf.Abs(Gesture.gen.righthandpos[0].y) + Mathf.Abs(Gesture.gen.righthandpos[9].y))/2)) * 1.5f;
         sound.volume = (Mathf.Abs(1 - (Mathf.Abs(Gesture.gen.righthandpos[0].x) + Mathf.Abs(Gesture.gen.righthandpos[9].x)) / 2 * 1.5f)) + 0.5f;
     }
+
+    public Vector3 getPos()
+    {
+        return new Vector3(((1 - Gesture.gen.righthandpos[9].x)*100)-50, ((1 - Gesture.gen.righthandpos[9].y)*50)-25, 0); 
+    }
 }
