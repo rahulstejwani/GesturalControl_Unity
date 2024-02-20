@@ -29,16 +29,9 @@ public class Gest2World : MonoBehaviour
         lefthandpos = lefthandpos / 20;
 
         ps.startSpeed = 1+ lefthandpos.y*30;
-        ps.startColor = new Color(Gesture.gen.righthandpos[0].x, Gesture.gen.righthandpos[0].y, Gesture.gen.righthandpos[0].z) ;
+       // ps.startColor = new Color(Gesture.gen.righthandpos[0].x, Gesture.gen.righthandpos[0].y, Gesture.gen.righthandpos[0].z) ;
         // Control audio
-        //sound.pitch = Mathf.Abs(Gesture.gen.righthandpos[0].y) + Mathf.Abs(Gesture.gen.righthandpos[9].y)/2 * 1.5f;
-        //sound.volume = (1 - (Mathf.Abs(Gesture.gen.righthandpos[0].x) + Mathf.Abs(Gesture.gen.righthandpos[9].x)) / 2 * 1.5f) + 0.5f;
         sound.pitch = (Mathf.Abs(1 - (Mathf.Abs(Gesture.gen.righthandpos[0].y) + Mathf.Abs(Gesture.gen.righthandpos[9].y))/2)) * 1.5f;
         sound.volume = (Mathf.Abs(1 - (Mathf.Abs(Gesture.gen.righthandpos[0].x) + Mathf.Abs(Gesture.gen.righthandpos[9].x)) / 2 * 1.5f)) + 0.5f;
-
-        //sound.pitch = Mathf.Abs(Gesture.gen.righthandpos[0].y) * 1.5f;
-
-        //sound.pitch = Mathf.Max(0, 1 - (Mathf.Abs(Gesture.gen.righthandpos[0].y) + Mathf.Abs(Gesture.gen.righthandpos[9].y)) / 2 * 1.5f);
-        //sound.volume = Mathf.Max(0, 1 - (Mathf.Abs(Gesture.gen.righthandpos[0].x) + Mathf.Abs(Gesture.gen.righthandpos[9].x)) / 2 * 1.5f) + 0.5f;
     }
 }
