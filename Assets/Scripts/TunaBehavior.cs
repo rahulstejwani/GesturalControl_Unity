@@ -11,14 +11,17 @@ public class TunaBehavior : MonoBehaviour
     { 
         source = GetComponent<AudioSource>();
     }
-    void Update(){}
+    
+    void Update()
+    {
+        if (GameController.isGameOver) return;
+    }
 
     // dictates actions that will happen when paw touches tuna
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Paw"))
         {
-            //Debug.Log("IS PAW!");
             Destroy(this.gameObject); // Destroy the caught tuna
             ScoreCounter.instance.IncreaseScore(); // Increment score
         }

@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public static bool isGameOver = false;
     public float gameTime = 30.0f; // Total game time in seconds
-
-    void Start() {}
+    public GameOverScreen GameOverScreen;
 
     // Acts as timer for game 
     void Update()
     {
-        gameTime -= Time.deltaTime;
-
-        if (gameTime <= 0)
+        if (!isGameOver)
         {
-            // End the game
-            Debug.Log("Game Over!");
+            gameTime -= Time.deltaTime;
+            if (gameTime <= 0)
+            {
+                isGameOver = true;
+                GameOverScreen.Setup(ScoreCounter.currentScore);
+            }
         }
+        
     }
 }
-

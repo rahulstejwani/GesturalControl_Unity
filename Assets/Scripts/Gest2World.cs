@@ -19,6 +19,13 @@ public class Gest2World : MonoBehaviour
 
     void Update()
     {
+        if (GameController.isGameOver)
+        {
+            sound.Stop();
+            particles.Stop();
+            return;
+        }
+
         var ps = particles.main;
         lefthandpos = new Vector3(0, 0, 0);
         for (int i = 0; i < 20; i++)

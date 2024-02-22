@@ -10,6 +10,11 @@ public class ScoreCounter : MonoBehaviour
     public TMP_Text scoreText;
     public static int currentScore = 0;
 
+    void Update() 
+    {
+        if (GameController.isGameOver) return;
+    }
+
     void Awake()
     {
         instance = this;
@@ -22,6 +27,7 @@ public class ScoreCounter : MonoBehaviour
 
     public void IncreaseScore()
     {
+        if (GameController.isGameOver) return;
         currentScore++;
         scoreText.text = "SCORE: " + currentScore.ToString();
     }
