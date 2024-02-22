@@ -20,7 +20,7 @@ public class RightPaw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        handPos = FindAnyObjectByType<Gest2World>().getPos();
+        handPos = FindAnyObjectByType<Gest2World>().getRightPos();
         transform.position = handPos; 
     }
 }
