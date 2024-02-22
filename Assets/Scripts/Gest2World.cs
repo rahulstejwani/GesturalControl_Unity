@@ -29,7 +29,7 @@ public class Gest2World : MonoBehaviour
 
         lefthandpos = lefthandpos / 20;
 
-        ps.startSpeed = 25 + (1 - (Gesture.gen.lefthandpos[0].y + Gesture.gen.lefthandpos[9].y)/2) * 75;
+        ps.startSpeed = 10 + (1 - (Gesture.gen.lefthandpos[0].y + Gesture.gen.lefthandpos[9].y)/2) * 40;
         emission.rateOverTime = (1 - (Gesture.gen.lefthandpos[0].x + Gesture.gen.lefthandpos[9].x)/2) * 100;
 
         // Control audio

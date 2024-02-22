@@ -8,7 +8,7 @@ public class ScoreCounter : MonoBehaviour
     public static ScoreCounter instance;
 
     public TMP_Text scoreText;
-    public static int currentScore = 0;
+    public static int currentScore;
 
     void Update() 
     {
@@ -22,6 +22,7 @@ public class ScoreCounter : MonoBehaviour
 
     void Start()
     {
+        currentScore = 0;
         scoreText.text = "SCORE: " + currentScore.ToString();
     }
 
